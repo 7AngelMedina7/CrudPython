@@ -6,7 +6,8 @@ class Data(models.Model):
     nombres=models.CharField(max_length=20)
     apellidos=models.CharField(max_length=20)
     email=models.EmailField(max_length=30)
-    age=models.PositiveSmallIntegerField(max_length=2)
+    age=models.PositiveSmallIntegerField()
+    password= models.CharField(max_length=15)
 
 
     def __str__(self):

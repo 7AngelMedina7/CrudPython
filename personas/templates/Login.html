@@ -10,24 +10,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
     
 </head>
-<link rel="stylesheet" src="css/clase3.css">
-<link rel="stylesheet" src="css/clase10.css">
+<link rel="stylesheet" href="css/clase3.css">
+<link rel="stylesheet" href="css/clase10.css">
 <body>
     <div class="login">
         <div class="form-container">
             <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
             
-            <form action="" class="form">
-                <label for="email" class="label">Email address</label>
-                <input type="email" id="input" placeholder="example@example.com" class="input-email">
+            <form action="" method="post" class="form">
+                <label for="name" class="label">Nombre(s)</label>
+                <input type="name" minlength="4" maxlength="10" required id="input" placeholder="John" class="input-email">
 
+                <label for="lastname" class="label">Apellido(s)</label>
+                <input type="lastname" minlength="2" required id="input" placeholder="Doe" class="input-email">
+
+                <label for="email" class="label">Email address</label>
+                <input type="email" minlength="10" required id="input" placeholder="example@example.com" class="input-email">
+                
                 <label for="password" class="label">Password</label>
                 <input type="password" id="input" placeholder="*********" class="input-password input">
 
-                <input type="submit" value="Log in" class="primary-button">
-                <a class="forgot" href="" > Forgot my password</a>
+                <label for="age" class="label">Edad</label>
+                <input type="age" minlength="2" required id="input" placeholder="18" class="input-email">
+
+
+                <input type="submit" value="Registrar" class="primary-button">
+                
             </form>
-            <button class="secondary-button"> Sign up</button>
         </div>
     </div>
 </body>
