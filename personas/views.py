@@ -5,4 +5,4 @@ from .models import Data
 def home(request):
     datos_personas = Data.objects.all()
     # Se envia los datos
-    return render(request, "index.html", {"datos": datos_personas})
+    return render(request, "Login.html", {"datos": datos_personas})
