@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Data(models.Model):
-    id= models.AutoField(primary_key=True)
+    id= models.CharField(auto_created=True, primary_key=True, max_length=6)
     nombres=models.CharField(max_length=20, null=True)
     apellidos=models.CharField(max_length=20, null=True)
     email=models.EmailField(max_length=30, null=True)
