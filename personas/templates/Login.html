@@ -20,22 +20,22 @@
             <form action="registrarDatos/" method="post" class="form" > {% csrf_token %}
 
                 <label for="number" class="label">id</label>
-                <input type="number"  maxlength="10" required id="input_id" placeholder="id" class="input-email">
+                <input type="number"  maxlength="10" required name="id_" id="input_id" placeholder="id" class="input-email">
 
                 <label for="name" class="label">Nombre(s)</label>
-                <input type="name" minlength="4" maxlength="10" required id="input_name" placeholder="John" class="input-email">
+                <input type="name" minlength="4" maxlength="10" name="name_" required id="input_name" placeholder="John" class="input-email">
 
                 <label for="lastname" class="label">Apellido(s)</label>
-                <input type="lastname" minlength="2" required id="input_lm" placeholder="Doe" class="input-email">
+                <input type="lastname" minlength="2" required name="apellido_" id="input_lm" placeholder="Doe" class="input-email">
 
                 <label for="email" class="label">Email address</label>
-                <input type="email" minlength="10" required id="input_email" placeholder="example@example.com" class="input-email">
+                <input type="email" minlength="10" required name="email_" id="input_email" placeholder="example@example.com" class="input-email">
                 
                 <label for="age" class="label">Edad</label>
-                <input type="age" minlength="2" required id="input_age" placeholder="18" class="input-email">
+                <input type="age" minlength="2" required name="edad_" id="input_age" placeholder="18" class="input-email">
 
                 <label for="password" class="label">Password</label>
-                <input type="password" id="input_pass" placeholder="*********" class="input-password input">
+                <input type="password" id="input_pass" name="contra_" placeholder="*********" class="input-password input">
 
                 
 

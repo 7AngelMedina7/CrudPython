@@ -8,20 +8,14 @@ def home(request):
     return render(request, "Login.html", {"datos": datos_personas})
 
 def registrarDatos(request):
-    nombres = request.POST['input_name']
-    apellidos = request.POST['input_lm']
-    email= request.POST ['input_email']
-    age= request.POST ['input_age']
-    password= request.POST ['input_pass']
-    id= request.POST ['input_id']
+    nombres = request.POST['name_']
+    apellidos = request.POST['apellido_']
+    email= request.POST ['email_']
+    age= request.POST ['edad_']
+    password= request.POST ['contra_']
+    id= request.POST ['id_']
 
     data = Data.objects.create(nombres=nombres, apellidos=apellidos, email=email, age=age, password=password, id=id)
-    print(data)
-    print("TEST!!!!!")
-    print("TEST!!!!!")
-    print("TEST!!!!!")
-    print("TEST!!!!!")
-    print("TEST!!!!!")
-    print("TEST!!!!!")
-    # mandando datos a la variable datos
+    
+    # mandando datos a la variable datos en /
     return redirect('/')
