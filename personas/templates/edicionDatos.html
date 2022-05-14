@@ -1,0 +1,38 @@
+
+
+{% block body %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/edicion.css' %}" >
+<div class="row login">
+    <div class="col-md-4 offset-md-4">
+        <h2>Editar Datos</h2>
+        <div class="card">
+        <div class="form-container" style="width: 18rem;" >
+            <form action="/editarDatos/" method="post" class="form" > {% csrf_token %}
+                
+                <label for="number" class="label">Matricula:</label>
+                <input type="number"  maxlength="10"  name="id_" value="{{data.id}}" readonly id="input" class="form-control">
+                <label for="name" class="label">Nombre(s):</label>
+                <input type="name" minlength="4" maxlength="10" name="name_" required id="input"  value="{{data.nombres}}" class="form-control">
+
+                <label for="lastname" class="label">Apellido(s):</label>
+                <input type="lastname" minlength="2" required name="apellido_" id="input" value="{{data.apellidos}}" class="form-control">
+
+                <label for="email" class="label">Email:</label>
+                <input type="email" minlength="10" required name="email_" id="input" value="{{data.email}}" readonly class="form-control">
+                
+                <label for="age" class="label">Edad:</label>
+                <input type="age" minlength="2" required name="edad_" id="input" value="{{data.age}}" class="form-control">
+
+                <label for="password" class="label">Password:</label>
+                <input type="password"  id="input" name="contra_" value="{{data.password}}" class="form-control">
+                
+                <input type="submit" value="Guardar" class="primary-button">
+                
+            </form>
+        </div>
+    </div>
+    </div>
+
+</div>
+{% endblock %}

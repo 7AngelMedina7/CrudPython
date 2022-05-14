@@ -27,6 +27,7 @@ title{
     place-items: center;
     /* centrar */
 }
+
 .form-container{
     display: grid;
     grid-template-rows: auto 1f auto;
@@ -44,6 +45,8 @@ title{
     font-weight: bold;
     margin-bottom: 4px;
 }
+
+
 #input{
     background-color: var(--text-input-field);
     border: none;
@@ -54,11 +57,13 @@ title{
     margin-bottom: 12px;
 }
 
+
 .form{
     /* lo pone junto al otro
     el otro lo pone arriba de uno */
     display: flex;
     flex-direction: column;
+    
 }
 .primary-button{
     background-color: var(--hospital-green);

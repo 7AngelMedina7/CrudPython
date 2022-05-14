@@ -1,63 +1,92 @@
 <!DOCTYPE html>
 <html lang="es">
-    {% load static %}
+    
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Register -WolfWorld</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
     <!-- Estilos de bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}" >
+
 </head>
-<link rel="stylesheet" href="static/css/clase10.css">
-<link rel="stylesheet" href="{% static 'css/clase3.css' %}" >
 
 <body>
+    <nav>
+        <div class="navbar-left">
+            <img src="{% static 'css/lobo.png' %}" alt="" class="lobo">
+        </div>
+        <div class="navbar-right">
+            <ul>
+                <li class="navbar-email"> <a href="admin/">ADMIN</a></li>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="login">
-        <div class="form-container card" style="width: 18rem;" >
-            <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
+        <div class="form-container" style="width: 18rem;" >
             
             <form action="registrarDatos/" method="post" class="form" > {% csrf_token %}
+                <h1>INGRESA TUS DATOS</h1>
+                <label for="number" class="label">Matricula:</label>
+                <input type="number"  maxlength="10"  name="id_" required id="input" min="0" placeholder="Matricula" class="form-control">
 
-                <label for="number" class="label">Matricula</label>
-                <input type="number"  maxlength="10"  name="id_" required id="input_id" placeholder="Matricula" class="form-control">
+                <label for="name" class="label">Nombre(s):</label>
+                <input type="name" minlength="4" maxlength="10" name="name_" required id="input" placeholder="Nombre" class="form-control">
 
-                <label for="name" class="label">Nombre(s)</label>
-                <input type="name" minlength="4" maxlength="10" name="name_" required id="input_name" placeholder="John" class="form-control">
+                <label for="lastname" class="label">Apellido(s):</label>
+                <input type="lastname" minlength="2" required name="apellido_" id="input" placeholder="Apellido" class="form-control">
 
-                <label for="lastname" class="label">Apellido(s)</label>
-                <input type="lastname" minlength="2" required name="apellido_" id="input_lm" placeholder="Doe" class="form-control">
-
-                <label for="email" class="label">Email address</label>
-                <input type="email" minlength="10" required name="email_" id="input_email" placeholder="example@example.com" class="form-control">
+                <label for="email" class="label">Email:</label>
+                <input type="email" minlength="10" required name="email_" id="input" placeholder="ejemplo@ejemplo.com" class="form-control">
                 
-                <label for="age" class="label">Edad</label>
-                <input type="age" minlength="2" required name="edad_" id="input_age" placeholder="18" class="form-control">
+                <label for="age" class="label">Edad:</label>
+                <input type="number" minlength="2" required name="edad_" id="input" min="18" max="99" placeholder="18" class="form-control">
 
-                <label for="password" class="label">Password</label>
-                <input type="password" id="input_pass" name="contra_" placeholder="*********" class="form-control">
-
+                <label for="password" class="label">Contraseña</label>
+                <input type="password" id="input" name="contra_" placeholder="*********" minlength="8" class="form-control">
                 
                 <input type="submit" value="Registrar" class="primary-button">
                 
             </form>
         </div>
-        <div>
-            <h1>Datos</h1>
-        </div>
-            <div class="card" style="width: 18rem;">
-                <div class="card-header">
-                  Alumnos
-                </div>
-                <ul class="list-group list-group-flush">
-                    <!--funcionamiento de Django para poner codigo en html mas sencillo-->
-                    {% for i in datos %}
-                    <li class="list-group-item">{{i.nombres}} {{i.apellidos}} Matricula: {{i.id}} </li>
-                    {%endfor%}
-                </ul>
+        <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8 form">
+                <h1>Datos</h1>
+                <div class="table-responsive py-2">
+                    <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Matricula</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Email</th>
+                            <th>Edad</th>
+                            <th colspan="2">Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for i in datos %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{i.id}}</td>
+                            <td>{{i.nombres}}</td>
+                            <td>{{i.apellidos}}</td>
+                            <td>{{i.email}}</td>
+                            <td>{{i.age}}</td>
+                            <td><a href="edicionDatos/{{i.id}}" class="btn btn-info">Editar</a></td>
+                            <td><a href="eliminarDatos/{{i.id}}" class="btn btn-danger">Eliminar</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
         
     </div>
